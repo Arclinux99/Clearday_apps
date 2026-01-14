@@ -73,10 +73,57 @@ class _AskAiPageState extends State<AskAiPage> {
 
       if (respone.statusCode == 200) {
         final data = jsonDecode(utf8.decoder(respone.bodyBytes));
-        final aiText
+        final aiText = data['choices'][0]['message']['content'];
+        
+        setState(() {
+            _messages.add(Chatmessage(text: aiText, isUser: false));
+            _isLoading = false;
+        });
+        
+      } else {
+        setState(() {
+          _messages.add(Chatmessage(text: 'Failed to get response', isUser: false));
+          _isLoading = false;
+        });
       }
+    } catch (e) {
+      setState(() {
+        _messages.add(Chatmessage(text: e.toString(), isUser: false));
+        _isLoading = false;
+      });
     }
+    _scrollToBottom();
+
+
+
   }
 
-  // penamabhancontoller nessage`
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback(_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+          );
+      } 
+    }
+  };
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: Theme.of(context).colorScheme.surface,
+    appBar: AppBar(
+      title: const Text('skin healt assistant'),
+      surfaceTintColor: Colors.transparent,
+    ),
+    body: Column(
+      children: [
+        
+      ],
+    ),
+  );
+}
+
 }
