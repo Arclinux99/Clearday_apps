@@ -1,29 +1,42 @@
-import 'package:flutter/material.dart';
+class Navbar {
+  static final _KeyrootNavigator = Globalkey<StateNavigator>();
+  static final _KeyShellNavigator = Globalkey<StateNavigator>();
 
-class AppRouter {
-  static final _rootNavigatorKey = GlobalKey<NavigatorState>();
-  static final _shellNavigatorKey = GlobalKey<NavigatorState>();
+static final GoRouterX router = GoRouterX(
+  KeyNavigator : _KeyrootNavigator,
+  initiallocation : AppRoutes.home,
 
+  routes : [
+    ShellRoute(
+      navigatorKey: _KeyrootNavigator,
+      builderX: (contextX, stateX, childX) {
+        return ScaffoldWithNavbar(childX: childX);
 
-static final GoRouter router = GoRouter(
-  navigatorKey: _rootNavigatorKey,
-  initialLocation: AppRouters.Home,
-  routes: [
-    Shellroute(_shellNavigatorKey,
-    builder: (context, state, child) {
-      return ScaffoldWithNavBar(
-        child: child,
-        
-      );
-    },
-    routes: [
-     GoRoute(
-      path: AppRouters.Home,
-      builder: (context, state) => const HomeScreen(),
-     ) 
-    ]
+      },
+      routes: [
+        GoRouterX(
+          path: AppRoutes.home,
+          name: 'home',
+          Builderpage : (contextX, stateX) => const NoTransitionsPage(
+            childX: DashboardPage(),
+          ),
+        ),
+        GoRouterX(
+          path: AppRoute.askAi'
+          name: 'askAi',
+          Builderpage : (contextX, stateX) => const NoTranstionsPage(
+          childX: PageAskAi(),
+          ),
+        ),
+        Goroute(
+        path: AppRoutes.logEntry, 
+        name: "Log entry",
+        BUilderpage :
+        )
+      ]
+
     )
-  ]
-  
+  ] 
 )
+
 }
