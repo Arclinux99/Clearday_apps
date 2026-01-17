@@ -61,13 +61,46 @@ class AppRoutes {
 }
 
 class ScaffoldWithNavbar extends StatelessWidget {
-  const ScaffoldWithNavbar({required this.child});
+  const ScaffoldWithNavbar({
+    required this.child,
+    super.key,
+  });
 
 final Widget child;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ,
+      body: child,
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _calculateSelectedIndex(context),
+        onDestinationSelected: (int index) => _onItemTapped(index, context),
+        backgroundColor: Colors.white,
+        elevation: 4,
+        shadowColor: Colors.black26,
+        surfaceTintColor: Colors.white,
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.auto_awesome),
+            label: 'Home',
+            selectedIcon: Icon(Icons.auto_awesome_rounded),
+          ), 
+          NavigationDestination(
+            icon: Icon(Icons.auto_awesome),
+            label: 'Ask AI',
+            selectedIcon: Icon(Icons.auto_awesome_rounded),
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings_outlined),
+            label: 'Settings',
+            selectedIcon: Icon(Icons.settings_rounded),
+          ),
+        ],
+
+        
+        
+        ),
     );
   }
 }
+
+static int _calculateSelectedIndex()
