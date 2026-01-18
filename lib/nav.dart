@@ -103,4 +103,32 @@ final Widget child;
   }
 }
 
-static int _calculateSelectedIndex()
+static int _calculateSelectedIndex(BuildContext context) {
+  final String location = GoRouterState.of(context).uri.path;
+  if (location.startsWith(AppRoutes.askAi)) {
+    return 1;
+  }
+  if (location.startsWith(AppRoutes.settings)) {
+    return 2;
+  }
+  if (location.startsWith(AppRoutes.home)) {
+    return 0;
+  }
+}
+// ketika di tekan akan berubah 
+void _onItemTapped(int index, BuildContext context) {
+  switch (index) {
+    case 0; 
+    context.go(AppRoutes.home)
+    break;
+    // case div
+    case 1;
+    context.go(AppRoutes.askAi)
+    break;
+    // div
+    case 2;
+    context.go(AppRouter.setting)
+    break;
+
+  }
+}
