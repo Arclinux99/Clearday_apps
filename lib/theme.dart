@@ -1,8 +1,8 @@
 import 'dart:core' show double;
-import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppSpacing {
   // space value
@@ -17,32 +17,32 @@ class AppSpacing {
   static const EdgeInsets paddingXs = EdgeInsets.all(xs);
   static const EdgeInsets paddingSm = EdgeInsets.all(sm);
   static const EdgeInsets paddingMd = EdgeInsets.all(md);
-static const EdgeInsets paddingLg = EdgeInsets.all(lg);
-static const EdgeInsets padding = EdgeInsets.all(xl)
-static const EdgeInsets padding = EdgeInsets.all(xxl)
+  static const EdgeInsets paddingLg = EdgeInsets.all(lg);
+  static const EdgeInsets paddingXl = EdgeInsets.all(xl);
+  static const EdgeInsets paddingXxl = EdgeInsets.all(xxl);
 
-// horizonta padding horizontal 
-static const EdgeInsets horizontalXs = EdgeInsets.symmetric(horizontal: xs)
-static const EdgeInsets horizontalSm = EdgeInsets.symmetric(horizontal: sm)
-static const EdgeInsets horizontalMd   = EdgeInsets.symmetric(horizontal: md)
-static const EdgeInsets horizontalLg = EdgeInsets.symmetric(horizontal: lg)
-static const EdgeInsets horizontalXl = EdgeInsets.symmetric(horizontal: xl)
-static const EdgeInsets horizontalXxl  = EdgeInsets.symmetric(horizontal: xxl)
+// horizontal padding horizontal 
+static const EdgeInsets horizontalXs = EdgeInsets.symmetric(horizontal: xs);
+static const EdgeInsets horizontalSm = EdgeInsets.symmetric(horizontal: sm);
+static const EdgeInsets horizontalMd = EdgeInsets.symmetric(horizontal: md);
+static const EdgeInsets horizontalLg = EdgeInsets.symmetric(horizontal: lg);
+static const EdgeInsets horizontalXl = EdgeInsets.symmetric(horizontal: xl);
+static const EdgeInsets horizontalXxl = EdgeInsets.symmetric(horizontal: xxl);
 
 // vertical padding
-static const EdgeInsets verticalxs  = EdgeInsets.symmetric(horizontal: xs)
-static const EdgeInsets verticalsm  = EdgeInsets.symmetric(horizontal: sm)
-static const EdgeInsets verticalmd    = EdgeInsets.symmetric(horizontal: md)
-static const EdgeInsets verticallg  = EdgeInsets.symmetric(horizontal: lg)
-static const EdgeInsets verticalxl  = EdgeInsets.symmetric(horizontal: xl)
-static const EdgeInsets verticalxxl   = EdgeInsets.symmetric(horizontal: xxl)
+static const EdgeInsets verticalXs = EdgeInsets.symmetric(vertical: xs);
+static const EdgeInsets verticalSm = EdgeInsets.symmetric(vertical: sm);
+static const EdgeInsets verticalMd = EdgeInsets.symmetric(vertical: md);
+static const EdgeInsets verticalLg = EdgeInsets.symmetric(vertical: lg);
+static const EdgeInsets verticalXl = EdgeInsets.symmetric(vertical: xl);
+static const EdgeInsets verticalXxl = EdgeInsets.symmetric(vertical: xxl);
 
 
 
 }
 
-/// Border radius constraints  for consistent rounde d cornens 
-  class AppRadis {
+/// Border radius constraints for consistent rounded corners 
+class AppRadius {
     
   
   
@@ -61,10 +61,10 @@ extension TextStyleContext on BuildContext {
   TextTheme get TextStyle => Theme.of(this).textTheme;
 }
 extension TextStyleExtensions on TextStyle {
-TextStyle get bold => copyWith(fontWeight: FontWeight.bold);
-TextStyle get semiBold => copyWith(fontWeight: FontWeight.semiBold);
-TextStyle get medium => copyWith(fontWeight: FontWeight.medium);
-TextStyle get regular => copyWith(fontWeight: FontWeight.normal);
+TextStyle get bold => copyWith(fontWeight: FontWeight.w700);
+TextStyle get semiBold => copyWith(fontWeight: FontWeight.w600);
+TextStyle get medium => copyWith(fontWeight: FontWeight.w500);
+TextStyle get regular => copyWith(fontWeight: FontWeight.w400);
 TextStyle get light => copyWith(fontWeight: FontWeight.w300);
 TextStyle withColor(Color color) => copyWith(color: color);
 TextStyle withSize(double fontSize) => copyWith(fontSize: fontSize);
@@ -127,11 +127,15 @@ class DarkModeColors {
 
   // Secondary
   static const darkSecondary = Color(0xFFFFCCBC);
-  static const darkOnSecondary = Color(0xFF572500); // 
+  static const darkOnSecondary = Color(0xFF572500);
+  static const darkSecondaryContainer = Color(0xFF572500);
+  static const darkOnSecondaryContainer = Color(0xFFFFCCBC);
 
   // Tertiary
   static const darkTertiary = Color(0xFFB39DDB);
   static const darkOnTertiary = Color(0xFF311B92);
+  static const darkTertiaryContainer = Color(0xFF4A378B);
+  static const darkOnTertiaryContainer = Color(0xFFD1C4E9);
 
   // Error
   static const darkError = Color(0xFFFFB4AB);
@@ -202,7 +206,7 @@ ThemeData get lightTheme => ThemeData(
 
 brightness: Brightness.light,
 scaffoldBackgroundColor: LightModeColors.lightBackground,
-appBarTheme: const AppBarTheme(
+appBarTheme: AppBarTheme(
   backgroundColor: Colors.transparent,
   foregroundColor: LightModeColors.lightOnSurface,
   elevation: 0,
@@ -216,24 +220,191 @@ cardTheme: CardThemeData(
     side: BorderSide(
       color: LightModeColors.lightOutline.withValues(alpha: 0.1),
       width: 1,
-    )
-  ) ,
-  color: Color.white,
-  margin: EdgeInsets.zero
+    ),
+  ),
+  color: Colors.white,
+  margin: EdgeInsets.zero,
 ),
 elevatedButtonTheme: ElevatedButtonThemeData(
-  style: ElevatedButton.styeFrom(
+  style: ElevatedButton.styleFrom(
     backgroundColor: LightModeColors.lightPrimary,
     foregroundColor: LightModeColors.lightOnPrimary,
     elevation: 0,
-    Padding: const EdgeInsets.symmetric(horizontal 24, vertical: 16),
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
   ),
 ),
-floatingActionButtonTheme:  FloatingActionButtonThemeData(
+floatingActionButtonTheme: FloatingActionButtonThemeData(
   backgroundColor: LightModeColors.lightSecondary,
   foregroundColor: LightModeColors.lightOnSecondary,
-  elevation: 2
-  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius))
-)
-)
+  elevation: 2,
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+),
+inputDecorationTheme: InputDecorationTheme(
+  filled: true,
+  fillColor: Colors.white,
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(16),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(16),
+    borderSide: BorderSide(
+      color: LightModeColors.lightOutline.withValues(alpha: 0.1),
+    ),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(16),
+    borderSide: BorderSide(
+      color: LightModeColors.lightOutline.withValues(alpha: 2),
+    ),
+  ),
+  contentPadding: const EdgeInsets.all(16),
+),
+textTheme: _buildTextTheme(Brightness.light),
+);
+
+ThemeData get darkTheme => ThemeData(
+useMaterial3: true,
+colorScheme: ColorScheme.dark(
+  primary: DarkModeColors.darkPrimary,
+  onPrimary: DarkModeColors.darkOnPrimary,
+  primaryContainer: DarkModeColors.darkPrimaryContainer,
+  onPrimaryContainer: DarkModeColors.darkOnPrimaryContainer,
+  secondary: DarkModeColors.darkSecondary,
+  onSecondary: DarkModeColors.darkOnSecondaryContainer,
+  secondaryContainer: DarkModeColors.darkSecondaryContainer,
+  onSecondaryContainer: DarkModeColors.darkOnSecondaryContainer,
+  tertiary: DarkModeColors.darkTertiary,
+  onTertiary: DarkModeColors.darkOnTertiary,
+  tertiaryContainer: DarkModeColors.darkTertiaryContainer,
+  error: DarkModeColors.darkError,
+  onError: DarkModeColors.darkOnError,
+  errorContainer: DarkModeColors.darkErrorContainer,
+  onErrorContainer: DarkModeColors.darkOnErrorContainer,
+  surface: DarkModeColors.darkSurface,
+  onSurface: DarkModeColors.darkOnSurface,
+  surfaceContainerHighest: DarkModeColors.darkSurfaceVariant,
+  onSurfaceVariant: DarkModeColors.darkOnSurfaceVariant,
+  outline: DarkModeColors.darkOutline,
+  shadow: DarkModeColors.darkShadow,
+  inversePrimary: DarkModeColors.darkInversePrimary,
+),
+brightness: Brightness.dark,
+scaffoldBackgroundColor: DarkModeColors.darkSurface,
+appBarTheme: AppBarTheme(
+  backgroundColor: Colors.transparent,
+  foregroundColor: DarkModeColors.darkOnSurface,
+  elevation: 0,
+  scrolledUnderElevation: 0,
+  centerTitle: true,
+),
+cardTheme: CardThemeData(
+  elevation: 0,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(20),
+    side: BorderSide(
+      color: DarkModeColors.darkOutline.withValues(alpha: 0.2),
+      width: 1,
+    ),
+  ),
+  margin: EdgeInsets.zero,
+),
+elevatedButtonTheme: ElevatedButtonThemeData(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: DarkModeColors.darkPrimary,
+    foregroundColor: DarkModeColors.darkOnPrimary,
+    elevation: 0,
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  ),
+),
+floatingActionButtonTheme: FloatingActionButtonThemeData(
+  backgroundColor: DarkModeColors.darkSecondary,
+  foregroundColor: DarkModeColors.darkOnSecondary,
+  elevation: 2,
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+),
+inputDecorationTheme: InputDecorationTheme(
+  filled: true,
+  fillColor: DarkModeColors.darkSurfaceVariant.withValues(alpha: 0.3),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(16),
+    borderSide: BorderSide.none,
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(16),
+    borderSide: BorderSide(
+      color: DarkModeColors.darkOutline.withValues(alpha: 0.1),
+      width: 2,
+    ),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(16),
+    borderSide: BorderSide(
+      color: DarkModeColors.darkOutline.withValues(alpha: 0.1),
+    ),
+  ),
+  contentPadding: const EdgeInsets.all(16),
+),
+textTheme: _buildTextTheme(Brightness.dark),
+);
+
+TextTheme _buildTextTheme(Brightness brightness) {
+  // using quicksand fonts for a softer, more  modern/ friendly health loook
+  return TextTheme(
+    displayLarge: GoogleFonts.quicksand(
+      fontSize: FontSizes.displayLarge,
+      fontWeight: FontWeight.bold,
+    ),
+    displayMedium: GoogleFonts.quicksand(
+      fontSize: FontSizes.displayMedium,
+      fontWeight: FontWeight.bold,
+    ),
+    displaySmall: GoogleFonts.quicksand(
+      fontSize: FontSizes.displaySmall,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineLarge: GoogleFonts.quicksand(
+      fontSize: FontSizes.headlineLarge,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineMedium: GoogleFonts.quicksand(
+      fontSize: FontSizes.headlineMedium,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineSmall: GoogleFonts.quicksand(
+      fontSize: FontSizes.headlineSmall,
+      fontWeight: FontWeight.bold,
+    ),
+    titleLarge: GoogleFonts.quicksand(
+      fontSize: FontSizes.titleLarge,
+      fontWeight: FontWeight.bold,
+    ),
+    titleMedium: GoogleFonts.quicksand(
+      fontSize: FontSizes.titleMedium,
+      fontWeight: FontWeight.bold,
+    ),
+    titleSmall: GoogleFonts.quicksand(
+      fontSize: FontSizes.titleSmall,
+      fontWeight: FontWeight.bold,
+    ),
+    bodyLarge: GoogleFonts.quicksand(
+      fontSize: FontSizes.bodyLarge,
+    ),
+    bodyMedium: GoogleFonts.quicksand(
+      fontSize: FontSizes.bodyMedium,
+    ),
+    bodySmall: GoogleFonts.quicksand(
+      fontSize: FontSizes.bodySmall,
+    ),
+    labelLarge: GoogleFonts.quicksand(
+      fontSize: FontSizes.labelLarge,
+    ),
+    labelMedium: GoogleFonts.quicksand(
+      fontSize: FontSizes.labelMedium,
+    ),
+    labelSmall: GoogleFonts.quicksand(
+      fontSize: FontSizes.labelSmall,
+    ),
+  );
+}
