@@ -174,5 +174,66 @@ static const double labelSmall = 11.0;
 
 ThemeData get lightTheme => ThemeData(
   useMaterial3: true,
-  
+  colorScheme: ColorScheme.light(
+    primary: LightModeColors.lightPrimary,
+    onPrimary: LightModeColors.lightOnPrimary,
+    primaryContainer: LightModeColors.lightPrimaryContainer,
+    onPrimaryContainer: LightModeColors.lightOnPrimaryContainer,
+    secondary: LightModeColors.lightSecondary,
+    onSecondary: LightModeColors.lightOnSecondary,
+    secondaryContainer: LightModeColors.lightSecondaryContainer,
+    onSecondaryContainer: LightModeColors.lightOnSecondaryContainer,
+    tertiary: LightModeColors.lightTertiary,
+    onTertiary: LightModeColors.lightOnTertiary,
+    tertiaryContainer: LightModeColors.lightTertiaryContainer,
+    error: LightModeColors.lightError,
+    onError: LightModeColors.lightOnError,
+    errorContainer: LightModeColors.lightErrorContainer,
+    onErrorContainer: LightModeColors.lightOnErrorContainer,
+    surface: LightModeColors.lightSurface,
+    onSurface: LightModeColors.lightOnSurface,
+    surfaceContainerHighest: LightModeColors.lightSurfaceVariant,
+    onSurfaceVariant: LightModeColors.lightOnSurfaceVariant,
+    outline: LightModeColors.lightOutline,
+    shadow: LightModeColors.lightShadow,
+    inversePrimary: LightModeColors.lightInversePrimary,
+    
+  ),
+
+brightness: Brightness.light,
+scaffoldBackgroundColor: LightModeColors.lightBackground,
+appBarTheme: const AppBarTheme(
+  backgroundColor: Colors.transparent,
+  foregroundColor: LightModeColors.lightOnSurface,
+  elevation: 0,
+  scrolledUnderElevation: 0,
+  centerTitle: true,
+),
+cardTheme: CardThemeData(
+  elevation: 0,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(20),
+    side: BorderSide(
+      color: LightModeColors.lightOutline.withValues(alpha: 0.1),
+      width: 1,
+    )
+  ) ,
+  color: Color.white,
+  margin: EdgeInsets.zero
+),
+elevatedButtonTheme: ElevatedButtonThemeData(
+  style: ElevatedButton.styeFrom(
+    backgroundColor: LightModeColors.lightPrimary,
+    foregroundColor: LightModeColors.lightOnPrimary,
+    elevation: 0,
+    Padding: const EdgeInsets.symmetric(horizontal 24, vertical: 16),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  ),
+),
+floatingActionButtonTheme:  FloatingActionButtonThemeData(
+  backgroundColor: LightModeColors.lightSecondary,
+  foregroundColor: LightModeColors.lightOnSecondary,
+  elevation: 2
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius))
+)
 )
