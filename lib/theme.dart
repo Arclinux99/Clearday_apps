@@ -355,7 +355,7 @@ TextTheme _buildTextTheme(Brightness brightness) {
     displayLarge: GoogleFonts.quicksand(
       fontSize: FontSizes.displayLarge,
       fontWeight: FontWeight.bold,
-    ),
+    ),  
     displayMedium: GoogleFonts.quicksand(
       fontSize: FontSizes.displayMedium,
       fontWeight: FontWeight.bold,

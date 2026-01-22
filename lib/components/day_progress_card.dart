@@ -1,6 +1,6 @@
 import 'package:clearday/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:clearday/models/skinlog.dart';
+import 'package:clearday/lib/models/skinlog.dart';
 import 'package:intl/intl.dart';
 
 class DayProgressCard extends StatelessWidget {
