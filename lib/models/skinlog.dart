@@ -2,16 +2,16 @@ import 'package:flutter/foundation.dart';
 
 class Skinlog {
   final String id;
-  final DateTime;
+  final DateTime date;
   final String? imagePath;
-  final String? notes;
-  final double rating;
+  final String notes;
+  final double rating; // 1 to 10
   final List<String> tags;
 
 
 
 Skinlog({
-  required this.id;
+  required this.id,
   required this.date,
   this.imagePath,
   required this.notes,
