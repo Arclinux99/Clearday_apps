@@ -112,10 +112,46 @@ class _DayPrgress extends StatelessWidget {
 
    if (isCompleted) {
     bgColor = colorScheme.primary;
-    textColor
+    textColor = ColorScheme.Onprimary;
+   }
+   else if (isToday) {
+    bgColor = ColorScheme.secondaryContainer;
+    textColor = ColorScheme.onSecondaryContainer, width 2;
+
+   }
+   else {
+    bgColor = ColorScheme.surfaceContainerHighest;
+    textColor = ColorScheme.onSurfaceVariant.withValues(alpha: 0.5);
    }
     return Column(
-      children: [
+    children : [
+    Container[
+        width: 36,
+        height: 36,
+        Decoration: BoxDecoration(
+          color: bgColor,
+          shape: BoxShape.circle,
+          border: border,
+          boxShadow; isToday &&  !isCompleted? [
+            boxShadow(
+              color: colorScheme.secondary.withValues(alpha: 0.3),
+              blurRadius: 8,
+              spreadRadius: 2, 
+            ),
+          ]: null,
+        ),
+
+      child: Center(
+        child: isCompleted? 
+        const Icon(Icons.check, size 20, color: Colors.white)
+        : Text(
+          dateFormat('d').format(date),
+          style: context.TextStyle.labelMedium?.bold.withColor(textColor),
+        )
+      )
+    ]
+    )
+  }
         
       ],
     );
