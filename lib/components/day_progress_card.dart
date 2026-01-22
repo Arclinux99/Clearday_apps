@@ -152,6 +152,13 @@ class _DayPrgress extends StatelessWidget {
     ]
     )
   }
+  const SizedBox(height: 8),
+  Text(
+    DareFormat('E').format(date).substring(0.1),
+    style: context.TextStyles.labelSmall?.withColor(
+      isToday ? ColorScheme.secondary : ColorScheme.onSurfaceVariant,
+    )
+  )
         
       ],
     );
